@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#0F3D36">
+<meta name="description" content="متابعة الحفظ والتثبيت والمراجعة: 9 تكرارات، حفظ لساني، تكرار متباعد، وورد أسبوعي">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="متابعة الحفظ">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<title>متابعة الحفظ والتثبيت والمراجعة</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F4F0E4;--card:#FFFDF7;--ink:#14302B;--mute:#566A64;--line:#DDD5BF;--teal:#14574D;--tealsoft:#DCEBE5;--gold:#B88A2A;--gt:#7A5A12;--goldsoft:#F3E7C6;--danger:#A3382F;--hd:#0F3D36;--hdink:#F7F1DD;--btn:#14574D;--btnink:#fff;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0B1B18;--card:#12302A;--ink:#EDE8D6;--mute:#A5BBB4;--line:#24493F;--teal:#5FC0AB;--tealsoft:#17413A;--gold:#E2B85A;--gt:#E2B85A;--goldsoft:#3A3318;--danger:#F08F85;--hd:#071512;--hdink:#F2E9C9;--btn:#5FC0AB;--btnink:#0B1B18}}
+:root[data-theme="dark"]{--bg:#0B1B18;--card:#12302A;--ink:#EDE8D6;--mute:#A5BBB4;--line:#24493F;--teal:#5FC0AB;--tealsoft:#17413A;--gold:#E2B85A;--gt:#E2B85A;--goldsoft:#3A3318;--danger:#F08F85;--hd:#071512;--hdink:#F2E9C9;--btn:#5FC0AB;--btnink:#0B1B18}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg)}
+body{color:var(--ink);font-family:'Tajawal',system-ui,sans-serif;font-size:17px;line-height:1.5;max-width:640px;margin:0 auto}
+.hd{background:var(--hd);color:var(--hdink);padding:20px 18px 16px;border-bottom:4px solid var(--gold)}
+.hd h1{margin:0;font-family:'Amiri',serif;font-size:32px;color:var(--gold)}
+.hd p{margin:0 0 12px;font-size:15px;opacity:.85}
+.st{display:flex;gap:8px}
+.st div{flex:1;background:rgba(255,255,255,.09);border-radius:12px;padding:8px 4px;text-align:center;font-size:13px}
+.st b{display:block;font-size:24px;color:var(--gold);line-height:1.2}
+.tabs{display:flex;gap:6px;padding:12px 14px 0}
+.tab{flex:1;min-height:44px;border:1.5px solid var(--line);background:transparent;color:var(--ink);border-radius:12px;font-family:inherit;font-size:15px;font-weight:700;cursor:pointer}
+.tab.on{background:var(--btn);color:var(--btnink);border-color:var(--btn)}
+main{padding:12px 14px 28px}
+h2{font-size:18px;margin:20px 2px 8px;color:var(--teal)}
+.card{background:var(--card);border:1.5px solid var(--line);border-radius:16px;padding:14px;margin-bottom:12px}
+.top{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px}
+.top b{font-family:'Amiri',serif;font-size:23px}
+.chip{margin-inline-start:auto;font-size:13px;font-weight:700;padding:2px 10px;border-radius:99px;background:var(--tealsoft);color:var(--teal)}
+.chip.s3{background:var(--goldsoft);color:var(--gt)}
+.row{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:4px 0;font-size:16px}
+.dots{display:flex;gap:6px}
+.dots i{width:14px;height:14px;border-radius:50%;border:2px solid var(--gold);display:block}
+.dots i.on{background:var(--gold)}
+.sm{min-width:44px;min-height:44px;border-radius:12px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);font-family:inherit;font-weight:700;font-size:17px;cursor:pointer;margin-inline-start:6px}
+.btn{width:100%;min-height:46px;border-radius:12px;border:1.5px solid var(--btn);background:transparent;color:var(--teal);font-family:inherit;font-weight:700;font-size:16px;cursor:pointer;margin-top:8px}
+.btn.pri{background:var(--btn);color:var(--btnink)}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.bar{height:10px;background:var(--tealsoft);border-radius:99px;overflow:hidden;margin:6px 0}
+.bar b{display:block;height:100%;background:var(--gold)}
+.mute{color:var(--mute);font-size:14px}
+.due{color:var(--danger);font-weight:700;font-size:15px}
+.ok{color:var(--teal);font-weight:700}
+.lnk{background:none;border:0;color:var(--mute);font-family:inherit;font-size:13px;cursor:pointer;min-height:44px;padding:0 4px}
+input,textarea{width:100%;min-height:44px;border:1.5px solid var(--line);border-radius:10px;padding:8px 12px;font-family:inherit;font-size:16px;background:var(--bg);color:var(--ink);margin:4px 0 10px}
+label{font-size:14px;color:var(--mute)}
+.empty{text-align:center;color:var(--mute);padding:26px 10px}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<datalist id="sl"></datalist>
+<script>
+const SUR='الفاتحة،البقرة،آل عمران،النساء،المائدة،الأنعام،الأعراف،الأنفال،التوبة،يونس،هود،يوسف،الرعد،إبراهيم،الحجر،النحل،الإسراء،الكهف،مريم،طه،الأنبياء،الحج،المؤمنون،النور،الفرقان،الشعراء،النمل،القصص،العنكبوت،الروم،لقمان،السجدة،الأحزاب،سبأ،فاطر،يس،الصافات،ص،الزمر،غافر،فصلت،الشورى،الزخرف،الدخان،الجاثية،الأحقاف،محمد،الفتح،الحجرات،ق،الذاريات،الطور،النجم،القمر،الرحمن،الواقعة،الحديد،المجادلة،الحشر،الممتحنة،الصف،الجمعة،المنافقون،التغابن،الطلاق،التحريم،الملك،القلم،الحاقة،المعارج،نوح،الجن،المزمل،المدثر،القيامة،الإنسان،المرسلات،النبأ،النازعات،عبس،التكوير،الانفطار،المطففين،الانشقاق،البروج،الطارق،الأعلى،الغاشية،الفجر،البلد،الشمس،الليل،الضحى،الشرح،التين،العلق،القدر،البينة،الزلزلة،العاديات،القارعة،التكاثر،العصر،الهمزة،الفيل،قريش،الماعون،الكوثر،الكافرون،النصر،المسد،الإخلاص،الفلق،الناس'.split('،');
+const ST={1:'الحفظ العقلي',2:'الحفظ اللساني',3:'التكرار المتباعد',4:'مثبّت'};
+const L=['استماع مركّز لمصحف مجوَّد','تكرار نظرًا','تكرار عن ظهر قلب'];
+const REV=['بعد 3 أيام من الحفظ اللساني','بعد 7 أيام من المراجعة الأولى','بعد شهر من المراجعة الثانية'];
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const p2=n=>String(n).padStart(2,'0');
+const fmt=d=>d.getFullYear()+'-'+p2(d.getMonth()+1)+'-'+p2(d.getDate());
+const parse=s=>{const [y,m,d]=s.split('-').map(Number);return new Date(y,m-1,d)};
+const today=()=>fmt(new Date());
+const addD=(s,n)=>{const d=parse(s);d.setDate(d.getDate()+n);return fmt(d)};
+const addM=s=>{const d=parse(s);d.setMonth(d.getMonth()+1);return fmt(d)};
+const diff=(a,b)=>Math.round((parse(b)-parse(a))/864e5);
+const dueDate=i=>i.rev==0?addD(i.last,3):i.rev==1?addD(i.last,7):addM(i.last);
+const dw=n=>n==1?'يومًا واحدًا':n==2?'يومين':n<=10?n+' أيام':n+' يومًا';
+const when=d=>{const n=diff(today(),d);return n<0?'متأخرة '+dw(-n):n==0?'تُستحق اليوم':n==1?'غدًا':'بعد '+dw(n)};
+const dots=(n,m)=>Array.from({length:m},(_,k)=>'<i class="'+(k<n?'on':'')+'"></i>').join('');
+
+const KEY='hifz-plan-v1';
+let S={items:[],wird:[]},noStore=false;
+try{const r=localStorage.getItem(KEY);if(r)S=JSON.parse(r)}catch(e){}
+if(!Array.isArray(S.items))S.items=[];
+if(!Array.isArray(S.wird))S.wird=[];
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){noStore=true}};
+let tab='today',showAdd=false,showBk=false,delId=null,msg='';
+$('#sl').innerHTML=SUR.map(n=>'<option value="'+n+'">').join('');
+
+function card(i){
+  const t=today();let b='';
+  if(i.stage==1){
+    b=L.map((n,k)=>'<div class="row"><span>'+n+'</span><span class="dots">'+dots(i.c[k],3)+'</span><span><button class="sm" data-a="c" data-id="'+i.id+'" data-k="'+k+'" data-d="-1" aria-label="إنقاص">−</button><button class="sm" data-a="c" data-id="'+i.id+'" data-k="'+k+'" data-d="1" aria-label="زيادة">+</button></span></div>').join('');
+    if(i.c.every(x=>x>=3))b+='<button class="btn pri" data-a="to2" data-id="'+i.id+'">اكتملت التكرارات التسعة، انتقل إلى الحفظ اللساني</button>';
+  }else if(i.stage==2){
+    b='<div class="row"><span>'+i.lisan+' / 30 مرة</span><span><button class="sm" data-a="l" data-id="'+i.id+'" data-d="-1" aria-label="إنقاص">−</button><button class="sm" data-a="l" data-id="'+i.id+'" data-d="1">+1</button><button class="sm" data-a="l" data-id="'+i.id+'" data-d="5">+5</button></span></div><div class="bar"><b style="width:'+Math.min(100,i.lisan/30*100)+'%"></b></div>';
+    if(i.lisan>=30)b+='<button class="btn pri" data-a="to3" data-id="'+i.id+'">تحقق الحفظ اللساني، انتقل إلى التكرار المتباعد</button>';
+  }else if(i.stage==3){
+    const d=dueDate(i),ok=diff(t,d)<=0;
+    b='<div class="row"><span>المراجعة '+(i.rev+1)+' من 3</span><span class="'+(ok?'due':'mute')+'">'+when(d)+'</span></div><div class="row"><span class="mute">'+REV[i.rev]+'</span><span class="dots">'+dots(i.rev,3)+'</span></div><button class="btn pri" '+(ok?'':'disabled')+' data-a="rev" data-id="'+i.id+'">تمت المراجعة</button>';
+  }else{
+    const inW=S.wird.some(w=>w.surah==i.surah);
+    b='<div class="ok">ثُبّت بعد 3 مراجعات ✓</div>'+(inW?'<div class="mute">سورة '+esc(i.surah)+' ضمن الورد الأسبوعي</div>':'<button class="btn" data-a="wadd" data-s="'+esc(i.surah)+'">أتممتُ السورة كاملة: أضفها للورد الأسبوعي</button>');
+  }
+  return '<div class="card"><div class="top"><b>'+esc(i.surah)+'</b><span class="mute">'+esc(i.part)+'</span><span class="chip s'+i.stage+'">'+ST[i.stage]+'</span></div>'+b+'<button class="lnk" data-a="del" data-id="'+i.id+'">'+(delId==i.id?'اضغط للتأكيد: حذف':'حذف')+'</button></div>';
+}
+function wrow(w,showDone){
+  const t=today(),n=w.last?diff(w.last,t):null,due=!w.last||n>=7;
+  return '<div class="card"><div class="top"><b>'+esc(w.surah)+'</b><span class="chip'+(due?' s3':'')+'">'+(due?'موعد المراجعة':'تمت هذا الأسبوع')+'</span></div><div class="mute">'+(w.last?(n==0?'آخر مراجعة: اليوم':'آخر مراجعة: قبل '+dw(n)):'لم تُراجَع بعد')+'</div><button class="btn pri" '+(w.last==t?'disabled':'')+' data-a="wdone" data-s="'+esc(w.surah)+'">راجعتها اليوم</button>'+(showDone?'<button class="lnk" data-a="wdel" data-s="'+esc(w.surah)+'">'+(delId=='w:'+w.surah?'اضغط للتأكيد: إزالة':'إزالة من الورد')+'</button>':'')+'</div>';
+}
+function render(){
+  const t=today(),it=S.items;
+  const dueR=it.filter(i=>i.stage==3&&dueDate(i)<=t),prog=it.filter(i=>i.stage<3);
+  const dueW=S.wird.filter(w=>!w.last||diff(w.last,t)>=7);
+  let h='<header class="hd"><h1>متابعة الحفظ</h1><p>حفظ · تثبيت · مراجعة</p><div class="st"><div><b>'+prog.length+'</b>قيد الحفظ</div><div><b>'+(dueR.length+dueW.length)+'</b>مستحقة اليوم</div><div><b>'+it.filter(i=>i.stage==4).length+'</b>مثبّتة</div></div></header>';
+  h+='<nav class="tabs">'+[['today','اليوم'],['all','المحفوظات'],['wird','الورد الأسبوعي']].map(x=>'<button class="tab'+(tab==x[0]?' on':'')+'" data-a="tab" data-t="'+x[0]+'">'+x[1]+'</button>').join('')+'</nav><main>';
+  h+='<button class="btn pri" data-a="showadd">'+(showAdd?'إغلاق':'＋ مقطع جديد للحفظ')+'</button>';
+  if(showAdd)h+='<div class="card" style="margin-top:10px"><label for="fs">السورة</label><input id="fs" list="sl" placeholder="مثال: البقرة" autocomplete="off"><label for="fp">المقطع</label><input id="fp" placeholder="مثال: الآيات 1–10"><button class="btn pri" data-a="add" style="margin-top:0">ابدأ الحفظ</button></div>';
+  if(tab=='today'){
+    if(dueR.length){h+='<h2>مراجعات مستحقة</h2>'+dueR.map(card).join('')}
+    if(prog.length){h+='<h2>قيد الحفظ</h2>'+prog.map(card).join('')}
+    if(dueW.length){h+='<h2>الورد الأسبوعي</h2>'+dueW.map(w=>wrow(w,false)).join('')}
+    if(!dueR.length&&!prog.length&&!dueW.length)h+='<div class="empty">لا مهام اليوم. أضف مقطعًا جديدًا لتبدأ.</div>';
+  }else if(tab=='all'){
+    h+=it.length?'<h2>كل المقاطع</h2>'+[...it].reverse().map(card).join(''):'<div class="empty">لم تضف أي مقطع بعد.</div>';
+  }else{
+    h+='<h2>الورد الأسبوعي</h2><div class="mute" style="margin-bottom:8px">تدخل السورة هنا بعد إتمامها كاملة، وتُراجَع مرة كل أسبوع.</div><div class="card"><label for="fw">أضف سورة</label><input id="fw" list="sl" placeholder="اسم السورة" autocomplete="off"><button class="btn" data-a="wnew" style="margin-top:0">إضافة للورد</button></div>'+(S.wird.length?S.wird.map(w=>wrow(w,true)).join(''):'<div class="empty">لا توجد سور في الورد بعد.</div>');
+  }
+  h+='<div style="text-align:center;margin-top:18px"><button class="lnk" data-a="bk">نسخ احتياطي واستعادة</button></div>';
+  if(showBk)h+='<div class="card"><div class="mute" style="margin-bottom:6px">بياناتك محفوظة في هذا المتصفح على هذا الجهاز فقط. انسخ النص أدناه واحتفظ به، ولاستعادته ألصقه هنا واضغط استيراد.'+(noStore?' تنبيه: تعذّر الحفظ التلقائي في هذا المتصفح.':'')+'</div><textarea id="bkt" rows="6">'+esc(JSON.stringify(S))+'</textarea><button class="btn" data-a="sel" style="margin-top:0">تحديد النص للنسخ</button><button class="btn" data-a="imp">استيراد من النص</button>'+(msg?'<div class="ok" style="margin-top:8px">'+msg+'</div>':'')+'</div>';
+  $('#app').innerHTML=h+'</main>';
+}
+document.addEventListener('click',e=>{
+  const b=e.target.closest('[data-a]');if(!b)return;
+  const a=b.dataset.a,t=today(),it=S.items.find(x=>x.id==b.dataset.id),s=b.dataset.s,d=+b.dataset.d;
+  if(a!='del'&&a!='wdel')delId=null;
+  if(a=='tab'){tab=b.dataset.t}
+  else if(a=='showadd'){showAdd=!showAdd}
+  else if(a=='add'){
+    const sv=$('#fs').value.trim(),pv=$('#fp').value.trim();
+    if(!sv){$('#fs').focus();return}
+    S.items.push({id:Date.now().toString(36)+Math.random().toString(36).slice(2,6),surah:sv,part:pv,stage:1,c:[0,0,0],lisan:0,rev:0,last:t,created:t});
+    showAdd=false;tab='today';
+  }
+  else if(a=='c'&&it){const k=+b.dataset.k;it.c[k]=Math.max(0,Math.min(3,it.c[k]+d))}
+  else if(a=='l'&&it){it.lisan=Math.max(0,it.lisan+d)}
+  else if(a=='to2'&&it){it.stage=2}
+  else if(a=='to3'&&it){it.stage=3;it.rev=0;it.last=t}
+  else if(a=='rev'&&it){if(dueDate(it)<=t){it.rev++;it.last=t;if(it.rev>=3)it.stage=4}}
+  else if(a=='del'){const id=b.dataset.id;if(delId==id){S.items=S.items.filter(x=>x.id!=id);delId=null}else delId=id}
+  else if(a=='wadd'){if(!S.wird.some(w=>w.surah==s))S.wird.push({surah:s,last:null,added:t})}
+  else if(a=='wnew'){const v=$('#fw').value.trim();if(!v){$('#fw').focus();return}if(!S.wird.some(w=>w.surah==v))S.wird.push({surah:v,last:null,added:t})}
+  else if(a=='wdone'){const w=S.wird.find(x=>x.surah==s);if(w)w.last=t}
+  else if(a=='wdel'){if(delId=='w:'+s){S.wird=S.wird.filter(x=>x.surah!=s);delId=null}else delId='w:'+s}
+  else if(a=='bk'){showBk=!showBk;msg=''}
+  else if(a=='sel'){const x=$('#bkt');x.focus();x.select();return}
+  else if(a=='imp'){
+    try{const o=JSON.parse($('#bkt').value);if(!Array.isArray(o.items))throw 0;S={items:o.items,wird:Array.isArray(o.wird)?o.wird:[]};msg='تم الاستيراد بنجاح.'}
+    catch(err){msg='تعذّر الاستيراد: النص غير صالح.'}
+  }
+  save();render();
+});
+render();
+</script>
+<script>
+if('serviceWorker' in navigator && (location.protocol==='https:'||location.hostname==='localhost')){
+  window.addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));
+}
+</script>
+</body>
+</html>
